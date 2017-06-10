@@ -22,6 +22,14 @@ h1 {
   color: white;
 }
 
-span {
-  color: white;
+
+#navbar {
+  background: white;
+  height: 30px;
+  text-align: center;
+  color: black;
+}
+
+.selected {
+  background: blue;
 }

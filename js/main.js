@@ -1,12 +1,43 @@
 /*jshint esversion: 6*/
 
-var colors = generateRandomColors(6);
+var colors        = generateRandomColors(6);
 
 var squares       = document.querySelectorAll(".square");
 var colorDisplay  = document.getElementById("colorDisplay");
 var pickedColor   = pickColor();
 var resultDisplay = document.querySelector("#result");
-var h1 = document.querySelector("h1");
+var h1            = document.querySelector("h1");
+var resetButton   = document.querySelector("#reset");
+var easyBtn       = document.querySelector("#easyBtn");
+var hardBtn       = document.querySelector("#hardBtn");
+
+easyBtn.addEventListener('click', function() {
+  easyBtn.classList.add("selected");
+  hardBtn.classList.remove("selected");
+
+});
+
+hardBtn.addEventListener('click', function() {
+  hardBtn.classList.add("selected");
+  easyBtn.classList.remove("selected");
+
+});
+
+resetButton.addEventListener('click', function() {
+  colors = generateRandomColors(6);
+  pickedColor = pickColor();
+  colorDisplay.textContent = pickedColor;
+  resultDisplay.textContent = "Good Luck!!!";
+  h1.style.backgroundColor = "#232323";
+  resetButton.textContent = "New Colors";
+
+
+  squares.forEach(function(s, i) {
+    s.style.backgroundColor = colors[i];
+    squares[i].textContent = "";
+  });
+
+});
 
 colorDisplay.textContent = pickedColor;
 squares.forEach(function(square, index) {
@@ -20,9 +51,10 @@ squares.forEach(function(square, index) {
     let clickedColor = this.style.backgroundColor;
     //compare to picked color
     if (clickedColor === pickedColor) {
-      resultDisplay.textContent = "Correct!";
+      resultDisplay.textContent = "Welldone!";
       changeColors(clickedColor);
       h1.style.backgroundColor = clickedColor;
+      resetButton.textContent = "Play Again?";
     } else {
       this.style.backgroundColor = "#232323";
       resultDisplay.textContent = "Try Again...";

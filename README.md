@@ -1,3 +1,3 @@
 ## Color Game
 
-### Using Javascript, HTML and CSS
+### Using Javascript, CSS and HTML

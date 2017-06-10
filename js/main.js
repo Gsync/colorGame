@@ -1,6 +1,6 @@
 /*jshint esversion: 6*/
-
-var colors        = generateRandomColors(6);
+var numSquares = 6;
+var colors        = generateRandomColors(numSquares);
 
 var squares       = document.querySelectorAll(".square");
 var colorDisplay  = document.getElementById("colorDisplay");
@@ -14,17 +14,34 @@ var hardBtn       = document.querySelector("#hardBtn");
 easyBtn.addEventListener('click', function() {
   easyBtn.classList.add("selected");
   hardBtn.classList.remove("selected");
-
+  numSquares = 3;
+  colors = generateRandomColors(numSquares);
+  pickedColor = pickColor();
+  for (let i = 0; i < squares.length; i++) {
+    if (colors[i]) {
+      squares[i].style.backgroundColor = colors[i];
+    } else {
+      squares[i].style.display = "none";
+    }
+  }
 });
 
 hardBtn.addEventListener('click', function() {
   hardBtn.classList.add("selected");
   easyBtn.classList.remove("selected");
+   numSquares = 6;
+  colors = generateRandomColors(numSquares);
+  pickedColor = pickColor();
+  for (let i = 0; i < squares.length; i++) {
+      squares[i].style.backgroundColor = colors[i];
+      squares[i].style.display = "block";
+  }
 
 });
 
 resetButton.addEventListener('click', function() {
-  colors = generateRandomColors(6);
+
+  colors = generateRandomColors(numSquares);
   pickedColor = pickColor();
   colorDisplay.textContent = pickedColor;
   resultDisplay.textContent = "Good Luck!!!";

@@ -4,7 +4,7 @@
 
 ### Snapshot
 
-![App Snapshot](./snapshots/colorgame.jpg?raw=true "App Snapshot Image")
+![App Snapshot]("./snapshots/colorgame.jpg?raw=true "App Snapshot Image")
 
 - Reference [The Web Developer Bootcamp by Colt Steele](https://www.udemy.com/the-web-developer-bootcamp)
 

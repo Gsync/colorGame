@@ -45,13 +45,12 @@ resetButton.addEventListener('click', function() {
   pickedColor = pickColor();
   colorDisplay.textContent = pickedColor;
   resultDisplay.textContent = "Good Luck!!!";
-  h1.style.backgroundColor = "#232323";
+  h1.style.backgroundColor = "steelblue";
   resetButton.textContent = "New Colors";
 
 
   squares.forEach(function(s, i) {
     s.style.backgroundColor = colors[i];
-    squares[i].textContent = "";
   });
 
 });
@@ -82,7 +81,6 @@ squares.forEach(function(square, index) {
 function changeColors(color) {
   for (let i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = color;
-    squares[i].textContent = "Correct!";
   }
 }
 
